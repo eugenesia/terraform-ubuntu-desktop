@@ -37,9 +37,10 @@ resource aws_launch_template desktop {
   instance_type = "t2.medium"
   user_data     = "${base64encode(data.template_file.userdata.rendered)}"
 
-  elastic_gpu_specifications {
-    type = "eg1.medium"
-  }
+  # Elastic GPU only available for Windows AMIs.
+  # elastic_gpu_specifications {
+  #   type = "eg1.medium"
+  # }
 
   tag_specifications {
     resource_type = "instance"

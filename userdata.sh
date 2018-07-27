@@ -21,10 +21,14 @@ echo "$swapFile swap swap defaults 0 0" | sudo tee -a /etc/fstab
 echo 'vm.swappiness=10' >> /etc/sysctl.conf
 
 #############################################
-# KVM
+# KVM - VM acceleration for Android Virtual Devices
+# https://help.ubuntu.com/community/KVM/Installation
+# https://developer.android.com/studio/run/emulator-acceleration#vm-linux
 
 apt-get update
-apt-get install -y qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
+apt-get install -y qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils cpu-checker
+
+adduser $USER libvirtd
 
 #############################################
 # VNC

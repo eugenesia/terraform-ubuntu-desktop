@@ -21,6 +21,11 @@ echo "$swapFile swap swap defaults 0 0" | sudo tee -a /etc/fstab
 echo 'vm.swappiness=10' >> /etc/sysctl.conf
 
 #############################################
+# KVM
+
+sudo apt-get install -y qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
+
+#############################################
 # VNC
 
 apt-get update

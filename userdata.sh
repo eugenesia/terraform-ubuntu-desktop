@@ -48,8 +48,8 @@ vncserver
 # Android
 
 cd $HOME
-wget https://dl.google.com/dl/android/studio/ide-zips/3.1.3.0/android-studio-ide-173.4819257-linux.zip
-unzip android-studio-ide-1.73.4819257
+wget https://dl.google.com/dl/android/studio/ide-zips/3.1.3.0/android-studio-ide-173.4819257-linux.zip -O android-studio.zip
+unzip android-studio.zip
 
 
 set +vx

@@ -30,35 +30,46 @@ data template_file userdata {
   }
 }
 
-resource aws_launch_template desktop {
-  name          = "desktop"
-  description   = "Ubuntu desktop."
-  image_id      = "${data.aws_ami.ubuntu.id}"
+resource aws_instance desktop {
+  ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.medium"
   user_data     = "${base64encode(data.template_file.userdata.rendered)}"
 
-  # Elastic GPU only available for Windows AMIs.
-  # elastic_gpu_specifications {
-  #   type = "eg1.medium"
-  # }
-
-  tag_specifications {
-    resource_type = "instance"
-
-    tags {
-      Name = "desktop"
-    }
+  tags {
+    Name = "desktop"
   }
 }
 
-resource aws_autoscaling_group desktop {
-  desired_capacity   = 1
-  max_size           = 1
-  min_size           = 1
-  availability_zones = ["eu-west-1a"]
+# resource aws_launch_template desktop {
+#   name          = "desktop"
+#   description   = "Ubuntu desktop."
+#   image_id      = "${data.aws_ami.ubuntu.id}"
+#   instance_type = "t2.medium"
+#   user_data     = "${base64encode(data.template_file.userdata.rendered)}"
+# 
+#   # Elastic GPU only available for Windows AMIs.
+#   # elastic_gpu_specifications {
+#   #   type = "eg1.medium"
+#   # }
+# 
+#   tag_specifications {
+#     resource_type = "instance"
+# 
+#     tags {
+#       Name = "desktop"
+#     }
+#   }
+# }
+# 
+# resource aws_autoscaling_group desktop {
+#   desired_capacity   = 1
+#   max_size           = 1
+#   min_size           = 1
+#   availability_zones = ["eu-west-1a"]
+# 
+#   launch_template {
+#     id      = "${aws_launch_template.desktop.id}"
+#     version = "$$Latest"
+#   }
+# }
 
-  launch_template {
-    id      = "${aws_launch_template.desktop.id}"
-    version = "$$Latest"
-  }
-}

@@ -35,15 +35,16 @@ chmod 600 $passwdFile
 vncserver
 
 vncserver -kill :1
-mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+xstartupFile=$HOME/.vnc/xstartup
+mv $xstartupFile $xstartupFile.bak
 
-cat > ~/.vnc/xstartup <<'EOF'
+cat > $xstartupFile <<'EOF'
 #!/bin/bash
 xrdb $HOME/.Xresources
 startxfce4 &
 EOF
 
-chmod +x ~/.vnc/xstartup
+chmod +x $xstartupFile
 
 # Start server
 vncserver

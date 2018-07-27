@@ -28,7 +28,7 @@ echo 'vm.swappiness=10' >> /etc/sysctl.conf
 apt-get update
 apt-get install -y qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils cpu-checker
 
-adduser $USER libvirtd
+adduser $USER libvirt
 
 #############################################
 # VNC

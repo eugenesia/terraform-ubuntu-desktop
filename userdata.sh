@@ -26,7 +26,10 @@ apt-get update
 apt install -y xfce4 xfce4-goodies tightvncserver
 
 mkdir $HOME/.vnc
-echo '${vnc_password}' | vncpasswd -f > $HOME/.vnc/passwd
+
+passwdFile=$HOME/.vnc/passwd
+echo '${vnc_password}' | vncpasswd -f > $passwdFile
+chmod 600 $passwdFile
 
 # Start vncserver
 vncserver

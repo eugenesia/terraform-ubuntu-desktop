@@ -25,6 +25,7 @@ echo 'vm.swappiness=10' >> /etc/sysctl.conf
 apt-get update
 apt install -y xfce4 xfce4-goodies tightvncserver
 
+mkdir $HOME/.vnc
 echo '${vnc_password}' | vncpasswd -f > $HOME/.vnc/passwd
 
 # Start vncserver

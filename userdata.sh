@@ -9,13 +9,14 @@ export USER=root
 # Swap
 
 # Add swap: https://help.ubuntu.com/community/SwapFaq
-fallocate -l 2g /mnt/2GiB.swap
-chmod 600 /mnt/2GiB.swap
-mkswap /mnt/2GiB.swap
-swapon /mnt/2GiB.swap
+swapFile=/mnt/3GiB.swap
+fallocate -l 3g $swapFile
+chmod 600 $swapFile
+mkswap $swapFile
+swapon $swapFile
 
 # Add the swap file details to /etc/fstab so it will be available at bootup:
-echo '/mnt/2GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab
+echo "$swapFile swap swap defaults 0 0" | sudo tee -a /etc/fstab
 
 echo 'vm.swappiness=10' >> /etc/sysctl.conf
 

@@ -23,12 +23,12 @@ echo 'vm.swappiness=10' >> /etc/sysctl.conf
 #############################################
 # KVM
 
-sudo apt-get install -y qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
+apt-get update
+apt-get install -y qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
 
 #############################################
 # VNC
 
-apt-get update
 apt install -y xfce4 xfce4-goodies tightvncserver
 
 mkdir $HOME/.vnc

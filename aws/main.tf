@@ -31,10 +31,11 @@ data template_file userdata {
 }
 
 resource aws_instance desktop {
-  ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "t2.medium"
-  user_data     = "${base64encode(data.template_file.userdata.rendered)}"
-  key_name      = "Eug TM"
+  ami             = "${data.aws_ami.ubuntu.id}"
+  instance_type   = "t2.medium"
+  user_data       = "${base64encode(data.template_file.userdata.rendered)}"
+  key_name        = "Eug TM"
+  security_groups = ["${aws_security_group.desktop.id}"]
 
   tags {
     Name = "desktop"

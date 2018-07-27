@@ -37,6 +37,11 @@ resource aws_instance desktop {
   key_name        = "Eug TM"
   security_groups = ["${aws_security_group.desktop.name}"]
 
+  # Default EBS size is 8GB, too small for Android Studio.
+  root_block_device {
+    volume_size = 20
+  }
+
   tags {
     Name = "desktop"
   }

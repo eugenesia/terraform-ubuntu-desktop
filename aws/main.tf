@@ -34,6 +34,7 @@ resource aws_instance desktop {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.medium"
   user_data     = "${base64encode(data.template_file.userdata.rendered)}"
+  key_name      = "Eug TM"
 
   tags {
     Name = "desktop"

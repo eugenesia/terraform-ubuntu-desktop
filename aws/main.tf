@@ -35,7 +35,7 @@ resource aws_instance desktop {
   instance_type   = "t2.medium"
   user_data       = "${base64encode(data.template_file.userdata.rendered)}"
   key_name        = "Eug TM"
-  security_groups = ["${aws_security_group.desktop.id}"]
+  security_groups = ["${aws_security_group.desktop.name}"]
 
   tags {
     Name = "desktop"

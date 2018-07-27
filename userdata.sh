@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -vx
+# set -vx
 
 export HOME=/root
 export USER=root
@@ -63,4 +63,4 @@ wget https://dl.google.com/dl/android/studio/ide-zips/3.1.3.0/android-studio-ide
 unzip android-studio.zip
 
 
-set +vx
+# set +vx

@@ -20,7 +20,7 @@ resource digitalocean_droplet desktop {
 resource digitalocean_record desktop {
   domain = "do.eugenesia.net"
   type   = "A"
-  name   = "ubuntu-desktop"
+  name   = "desktop"
   value  = "${digitalocean_droplet.desktop.ipv4_address}"
   ttl    = 180
 }

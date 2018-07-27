@@ -5,10 +5,13 @@ provider digitalocean {
 
 # Create a droplet.
 resource digitalocean_droplet desktop {
-  image     = "ubuntu-18-04-x64"
-  name      = "ubuntu-desktop"
-  region    = "lon1"
-  size      = "s-2vcpu-2gb"
+  image  = "ubuntu-18-04-x64"
+  name   = "ubuntu-desktop"
+  region = "lon1"
+
+  # size = "s-2vcpu-2gb"
+  size = "s-3vcpu-1gb"
+
   ssh_keys  = [4066671, 17252294]
   user_data = "${data.template_file.userdata.rendered}"
 }

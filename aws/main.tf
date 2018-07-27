@@ -39,7 +39,7 @@ resource aws_instance desktop {
 
   # Default EBS size is 8GB, too small for Android Studio.
   root_block_device {
-    volume_size = 20
+    volume_size = 30
   }
 
   tags {

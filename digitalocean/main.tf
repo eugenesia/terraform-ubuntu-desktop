@@ -15,7 +15,7 @@ resource digitalocean_droplet desktop {
 
   # CPU-optimised.
   # size = "c-1vcpu-2gb"
-  size = "c-2"
+  size = "c-4"
   ssh_keys  = [4066671, 17252294]
   user_data = "${data.template_file.userdata.rendered}"
 }
